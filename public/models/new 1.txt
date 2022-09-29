@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Image Capture API</title>
+	</head>
+	<body>
+        <button id="playBtn">Play stream</button>
+        <button id="stopBtn">Stop stream</button>
+        <button id="captureBtn">Capture</button>
+        <canvas id="canvas"></canvas> <video id="player" autoplay></video>
+		<script>
+const playBtn = document.getElementById('playBtn');
+const stopBtn = document.getElementById('stopBtn');
+const capture = document.getElementById('captureBtn');
+const player = document.getElementById('player');
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+
+let stream;
+
+playBtn.addEventListener('click', () => {
+	navigator.mediaDevices
+		.getUserMedia({video: true})
+		.then(mediaStream => {
+			player.srcObject = mediaStream;
+			stream = mediaStream;
+		});
+});
+
+stopBtn.addEventListener('click', () => {
+	stream.getTracks().forEach(track => track.stop());
+});
+
+capture.addEventListener('click', () => {
+	const track = stream.getVideoTracks()[0];
+	let imageCapture = new ImageCapture(track);
+	imageCapture.takePhoto()
+		.then(blob => {
+			const img = new Image();
+			img.src = URL.createObjectURL(blob);
+			img.onload = () => {
+				context.drawImage(img, 0, 0, canvas.width, canvas.height);
+				URL.revokeObjectURL(img.src);
+			};
+		});
+})
+        </script>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+Remarks
+
+1. faceapi is not defined 
+
+2.auth key is not defined
+
+3. projectId came from backend where we call this in api
+
+4. import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js";
+
+these  getDatabase, ref, onValue we can defined but never user in the main.js 
+
+5.Additional javascript files are missing to import 
+
+The given below links is not opened in chrome
+
+https://raw.githubusercontent.com/sunumuk/virtualbusinesscard/master/images/${user}/1.jpg
+https://raw.githubusercontent.com/sunumuk/virtualbusinesscard/master/images/${label}/${i}.jpg

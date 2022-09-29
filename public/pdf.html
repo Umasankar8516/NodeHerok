@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script>
+        function generatePDF() {
+            const element = document.getElementById("pdf");
+            html2pdf().from(element).save()
+        }
+    </script>
+</head>
+
+<body>
+    <div id=pdf style="width:600px;">
+        <img height=250 width=250
+            src="https://www.ltts.com/sites/default/files/styles/author_image/public/blogs/2022-04/Sachin%20Kulkarni.jpg?itok=B0MfObhp"
+            style="float: left; margin-right: 15px;" />
+        <div id=name align=right>
+            <label>
+                <font size="6"><b>Sachin Kulkarni</b></font>
+            </label>
+            <br>
+            <label>
+                <font size="4"><b>Head</b></font>
+            </label>
+        </div><br>
+        <div id=phone align=right>
+            <label>+91 247283974 </label>
+            <img src="https://icons.iconarchive.com/icons/graphicloads/100-flat/256/phone-icon.png" width=35
+                height=35 /> </div>
+        <div id=location align=right>
+            <label>Airoli Office, Mumbai </label>
+            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width=35 height=35 />
+        </div>
+        <div id=email align=right>
+            <label>sachin.kulkarni@ltts.com</label>
+            <img src="https://icons.veryicon.com/png/o/business/oa-office/mail-227.png" width=35 height=35 />
+        </div>
+        <div id=email align=right>
+            <label>linkedin.com/in/sachin-kulkarni-099316a</label>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" width=35
+                height=35 />
+        </div>
+    </div>
+    <button onclick="generatePDF()">Download</button>
+</body>
+
+</html>
+
+
+</html>
